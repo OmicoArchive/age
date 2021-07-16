@@ -8,7 +8,7 @@ import java.util.Properties
 
 fun Project.configureSigningConfigs(
     name: String = "release",
-    properties: Properties = localProperties
+    properties: Properties = localProperties,
 ) = plugins.withId("com.android.application") {
     configure<BaseExtension>("android") {
         signingConfigs {

@@ -17,12 +17,3 @@ fun Project.withKotlinAndroid(block: Plugin<in Any>.() -> Unit) =
 
 fun Project.kotlinCompile(block: KotlinCompile.() -> Unit) =
     withKotlin { tasks.withType<KotlinCompile>().configureEach { block() } }
-
-fun Project.configureKotlinCommon() {
-    kotlinCompile {
-        kotlinOptions {
-            jvmTarget = "11"
-            freeCompilerArgs = freeCompilerArgs + "-Xopt-in=kotlin.RequiresOptIn"
-        }
-    }
-}

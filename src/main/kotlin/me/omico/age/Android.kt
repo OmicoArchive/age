@@ -3,7 +3,6 @@
 package me.omico.age
 
 import com.android.build.api.dsl.CommonExtension
-import org.gradle.api.JavaVersion
 import org.gradle.api.Plugin
 import org.gradle.api.Project
 
@@ -22,13 +21,5 @@ fun Project.withAndroid(block: Plugin<in Any>.() -> Unit) {
     withAndroidDynamicFeature(block)
 }
 
-fun Project.configureAndroidCommon(
-    javaVersion: JavaVersion = JavaVersion.VERSION_11
-) = withAndroid {
-    configure<CommonExtension<*, *, *, *>>("android") {
-        compileOptions {
-            sourceCompatibility = javaVersion
-            targetCompatibility = javaVersion
-        }
-    }
-}
+fun Project.configureAndroidCommon(block: CommonExtension<*, *, *, *>.() -> Unit) =
+    withAndroid { configure("android", block) }
