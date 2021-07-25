@@ -23,3 +23,7 @@ fun Project.withAndroid(block: Plugin<in Any>.() -> Unit) {
 
 fun Project.configureAndroidCommon(block: CommonExtension<*, *, *, *>.() -> Unit) =
     withAndroid { configure("android", block) }
+
+fun Project.withBuildType(buildType: String, block: () -> Unit) {
+    if (taskRequestContains(buildType)) block()
+}
