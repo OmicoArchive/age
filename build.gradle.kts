@@ -24,11 +24,11 @@ java {
 }
 
 dependencies {
-    compileOnly("com.android.tools.build:gradle:7.1.0-alpha03")
-    compileOnly("com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:5.14.1")
+    compileOnly("com.android.tools.build:gradle:7.1.0-alpha04")
+    compileOnly("com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:5.14.2")
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    compileOnly(kotlin("gradle-plugin", "1.5.20"))
+    compileOnly(kotlin("gradle-plugin", "1.5.21"))
 }
 
 configure<PublishingExtension> {
