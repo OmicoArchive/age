@@ -16,4 +16,4 @@ fun Project.withKotlinAndroid(block: Plugin<in Any>.() -> Unit) =
     plugins.withId("kotlin-android", block)
 
 fun Project.kotlinCompile(block: KotlinCompile.() -> Unit) =
-    withKotlin { tasks.withType<KotlinCompile>().configureEach { block() } }
+    withKotlin { tasks.withType<KotlinCompile>().configureEach(block) }
