@@ -1,25 +1,23 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="publishAgePublicationToMavenLocal" type="GradleRunConfiguration" factoryName="Gradle" singleton="false">
+  <configuration default="false" name="age.publishAgePublicationToMavenLocal" type="GradleRunConfiguration" factoryName="Gradle">
     <ExternalSystemSettings>
       <option name="executionName" />
-      <option name="externalProjectPath" value="$PROJECT_DIR$" />
+      <option name="externalProjectPath" value="$PROJECT_DIR$/age-gradle-plugin" />
       <option name="externalSystemIdString" value="GRADLE" />
-      <option name="scriptParameters" value="" />
+      <option name="scriptParameters" value="publishAgePublicationToMavenLocal" />
       <option name="taskDescriptions">
         <list />
       </option>
       <option name="taskNames">
-        <list>
-          <option value="publishAgePublicationToMavenLocal" />
-        </list>
+        <list />
       </option>
-      <option name="vmOptions" value="" />
+      <option name="vmOptions" />
     </ExternalSystemSettings>
     <ExternalSystemDebugServerProcess>true</ExternalSystemDebugServerProcess>
     <ExternalSystemReattachDebugProcess>true</ExternalSystemReattachDebugProcess>
     <DebugAllEnabled>false</DebugAllEnabled>
     <method v="2">
-      <option name="RunConfigurationTask" enabled="true" run_configuration_name="spotlessApply" run_configuration_type="GradleRunConfiguration" />
+      <option name="RunConfigurationTask" enabled="true" run_configuration_name="age.spotlessApply" run_configuration_type="GradleRunConfiguration" />
     </method>
   </configuration>
 </component>
