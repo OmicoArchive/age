@@ -3,11 +3,15 @@
 package me.omico.age.dsl
 
 import com.diffplug.gradle.spotless.SpotlessExtension
+import com.diffplug.gradle.spotless.SpotlessPlugin
 import org.gradle.api.Project
+import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
 
-fun Project.configureSpotless(block: SpotlessExtension.() -> Unit) =
+fun Project.configureSpotless(block: SpotlessExtension.() -> Unit) {
+    apply<SpotlessPlugin>()
     plugins.withId("com.diffplug.spotless") { configure(block) }
+}
 
 fun Project.configureSpotlessWithCommonRules(
     ktlintVersion: String = "0.41.0",
