@@ -1,4 +1,4 @@
-package me.omico.age
+package me.omico.age.dsl
 
 import org.gradle.api.Project
 import java.util.Properties

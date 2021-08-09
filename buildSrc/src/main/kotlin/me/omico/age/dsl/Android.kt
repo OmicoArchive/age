@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage", "unused")
 
-package me.omico.age
+package me.omico.age.dsl
 
 import com.android.build.api.dsl.CommonExtension
 import org.gradle.api.Plugin

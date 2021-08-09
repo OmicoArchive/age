@@ -1,5 +1,8 @@
 package me.omico.age
 
+import me.omico.age.dsl.withAndroidApplication
+import me.omico.age.dsl.withAndroidDynamicFeature
+import me.omico.age.dsl.withAndroidLibrary
 import org.gradle.api.Project
 
 abstract class AgeExtension {

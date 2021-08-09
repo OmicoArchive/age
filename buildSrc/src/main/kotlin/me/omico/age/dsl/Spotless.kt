@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package me.omico.age
+package me.omico.age.dsl
 
 import com.diffplug.gradle.spotless.SpotlessExtension
 import org.gradle.api.Project

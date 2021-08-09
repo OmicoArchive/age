@@ -3,6 +3,8 @@
 package me.omico.age
 
 import com.android.build.gradle.BaseExtension
+import me.omico.age.dsl.configure
+import me.omico.age.dsl.localProperties
 import org.gradle.api.Project
 import java.io.File
 import java.util.Properties

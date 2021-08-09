@@ -1,6 +1,6 @@
 @file:Suppress("unused")
 
-package me.omico.age
+package me.omico.age.dsl
 
 import org.gradle.api.Plugin
 import org.gradle.api.Project
