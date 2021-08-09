@@ -19,11 +19,11 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation("com.android.tools.build:gradle:7.1.0-alpha05")
+    implementation("com.android.tools.build:gradle:7.1.0-alpha06")
     implementation("com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:5.14.2")
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
-    implementation(kotlin("gradle-plugin", "1.5.10"))
-    implementation(kotlin("reflect", "1.5.10"))
-    implementation(kotlin("stdlib", "1.5.10"))
+    implementation(kotlin("gradle-plugin", "1.5.21"))
+    implementation(kotlin("reflect", "1.5.21"))
+    implementation(kotlin("stdlib", "1.5.21"))
 }

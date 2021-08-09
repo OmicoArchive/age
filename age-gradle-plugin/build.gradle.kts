@@ -23,13 +23,13 @@ gradlePlugin {
 }
 
 dependencies {
-    compileOnly("com.android.tools.build:gradle:7.1.0-alpha05")
+    compileOnly("com.android.tools.build:gradle:7.1.0-alpha06")
     compileOnly("com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:5.14.2")
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    compileOnly(kotlin("gradle-plugin", "1.5.10"))
-    compileOnly(kotlin("reflect", "1.5.10"))
-    compileOnly(kotlin("stdlib", "1.5.10"))
+    compileOnly(kotlin("gradle-plugin", "1.5.21"))
+    compileOnly(kotlin("reflect", "1.5.21"))
+    compileOnly(kotlin("stdlib", "1.5.21"))
 }
 
 val sourcesJar by tasks.creating(Jar::class) {
