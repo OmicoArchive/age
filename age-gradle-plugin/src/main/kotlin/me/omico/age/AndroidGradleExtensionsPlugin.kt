@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package me.omico.age
 
 import org.gradle.api.Plugin

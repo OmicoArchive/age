@@ -1,5 +1,4 @@
 plugins {
-    `java-gradle-plugin`
     `kotlin-dsl`
     `maven-publish`
 }
@@ -10,25 +9,20 @@ java {
     withSourcesJar()
 }
 
-gradlePlugin {
-    plugins {
-        register("androidGradleExtensions") {
-            id = "me.omico.age"
-            implementationClass = "me.omico.age.AndroidGradleExtensionsPlugin"
-        }
-    }
-}
-
 dependencies {
-    api(project(":age-dsl"))
+    compileOnly(gradleApi())
+    compileOnly(gradleKotlinDsl())
+    compileOnly(libs.gradle.plugin.android)
+    compileOnly(libs.gradle.plugin.kotlin)
+    compileOnly(libs.gradle.plugin.spotless)
 }
 
 val sourcesJar by tasks.getting(Jar::class)
 
 publishing {
     publications {
-        create<MavenPublication>("gradlePlugin") {
-            artifactId = "me.omico.age.gradle.plugin"
+        create<MavenPublication>("dsl") {
+            artifactId = "age-dsl"
             from(components["kotlin"])
             artifact(sourcesJar)
         }

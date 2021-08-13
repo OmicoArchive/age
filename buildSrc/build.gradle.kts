@@ -1,29 +1,22 @@
+@file:Suppress("UnstableApiUsage")
+
 plugins {
-    `java-gradle-plugin`
-    id("org.gradle.kotlin.kotlin-dsl") version "2.1.6"
+    `kotlin-dsl`
 }
 
-repositories {
-    gradlePluginPortal()
-    google()
-    mavenCentral()
+java {
+    sourceCompatibility = JavaVersion.VERSION_11
+    targetCompatibility = JavaVersion.VERSION_11
 }
 
-gradlePlugin {
-    plugins {
-        register("androidGradleExtensions") {
-            id = "me.omico.age"
-            implementationClass = "me.omico.age.AndroidGradleExtensionsPlugin"
-        }
+pluginManager.withPlugin("org.gradle.kotlin.kotlin-dsl") {
+    val catalogs = extensions.getByType<VersionCatalogsExtension>()
+    val libs = catalogs.named("libs")
+    dependencies {
+        implementation(gradleApi())
+        implementation(gradleKotlinDsl())
+        implementation(libs.findDependency("gradle-plugin-android").get())
+        implementation(libs.findDependency("gradle-plugin-kotlin").get())
+        implementation(libs.findDependency("gradle-plugin-spotless").get())
     }
-}
-
-dependencies {
-    implementation("com.android.tools.build:gradle:7.1.0-alpha06")
-    implementation("com.diffplug.spotless:com.diffplug.spotless.gradle.plugin:5.14.2")
-    implementation(gradleApi())
-    implementation(gradleKotlinDsl())
-    implementation(kotlin("gradle-plugin", "1.5.21"))
-    implementation(kotlin("reflect", "1.5.21"))
-    implementation(kotlin("stdlib", "1.5.21"))
 }

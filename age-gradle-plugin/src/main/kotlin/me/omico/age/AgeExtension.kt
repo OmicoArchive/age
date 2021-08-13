@@ -1,3 +1,5 @@
+@file:Suppress("unused")
+
 package me.omico.age
 
 import me.omico.age.dsl.withAndroidApplication
@@ -18,5 +20,3 @@ abstract class AgeExtension {
         const val NAME = "age"
     }
 }
-
-
