@@ -12,9 +12,7 @@ java {
 dependencies {
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    compileOnly(libs.gradle.plugin.android)
-    compileOnly(libs.gradle.plugin.kotlin)
-    compileOnly(libs.gradle.plugin.spotless)
+    compileOnly(libs.bundles.dsl)
 }
 
 val sourcesJar by tasks.getting(Jar::class)

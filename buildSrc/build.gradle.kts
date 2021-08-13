@@ -15,8 +15,6 @@ pluginManager.withPlugin("org.gradle.kotlin.kotlin-dsl") {
     dependencies {
         implementation(gradleApi())
         implementation(gradleKotlinDsl())
-        implementation(libs.findDependency("gradle-plugin-android").get())
-        implementation(libs.findDependency("gradle-plugin-kotlin").get())
-        implementation(libs.findDependency("gradle-plugin-spotless").get())
+        implementation(libs.findBundle("dsl").get())
     }
 }
