@@ -15,14 +15,12 @@ dependencies {
     compileOnly(libs.bundles.dsl)
 }
 
-val sourcesJar by tasks.getting(Jar::class)
-
 publishing {
     publications {
         create<MavenPublication>("dsl") {
             artifactId = "age-dsl"
             from(components["kotlin"])
-            artifact(sourcesJar)
+            artifact(tasks["sourcesJar"])
         }
     }
 }

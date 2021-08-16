@@ -23,14 +23,12 @@ dependencies {
     api(project(":age-dsl"))
 }
 
-val sourcesJar by tasks.getting(Jar::class)
-
 publishing {
     publications {
         create<MavenPublication>("gradlePlugin") {
             artifactId = "me.omico.age.gradle.plugin"
             from(components["kotlin"])
-            artifact(sourcesJar)
+            artifact(tasks["sourcesJar"])
         }
     }
 }
