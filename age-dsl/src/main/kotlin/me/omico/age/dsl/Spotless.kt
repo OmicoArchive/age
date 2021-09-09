@@ -16,7 +16,7 @@ fun Project.configureSpotless(block: SpotlessExtension.() -> Unit) {
     plugins.withId("com.diffplug.spotless") { configure(block) }
 }
 
-private const val DEFAULT_KT_LINT_VERSION = "0.41.0"
+private const val DEFAULT_KT_LINT_VERSION = "0.42.1"
 
 fun Project.configureSpotlessWithCommonRules() =
     configureSpotless {
