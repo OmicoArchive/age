@@ -1,3 +1,5 @@
+import me.omico.age.dsl.configureMavenLibraryPublish
+
 plugins {
     `kotlin-dsl`
     `maven-publish`
@@ -15,12 +17,7 @@ dependencies {
     compileOnly(libs.bundles.dsl)
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("dsl") {
-            artifactId = "age-dsl"
-            from(components["kotlin"])
-            artifact(tasks["sourcesJar"])
-        }
-    }
-}
+configureMavenLibraryPublish(
+    mavenPublicationName = "dsl",
+    versionName = version.toString(),
+)

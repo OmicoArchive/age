@@ -1,3 +1,5 @@
+import me.omico.age.dsl.configureMavenLibraryPublish
+
 plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
@@ -23,12 +25,7 @@ dependencies {
     api(project(":age-dsl"))
 }
 
-publishing {
-    publications {
-        create<MavenPublication>("gradlePlugin") {
-            artifactId = "me.omico.age.gradle.plugin"
-            from(components["kotlin"])
-            artifact(tasks["sourcesJar"])
-        }
-    }
-}
+configureMavenLibraryPublish(
+    mavenPublicationName = "gradlePlugin",
+    versionName = version.toString(),
+)
