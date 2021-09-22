@@ -7,6 +7,6 @@ plugins {
 
 allprojects {
     group = "me.omico.age"
-    version = "1.0.0"
+    version = "1.0.0-SNAPSHOT"
     configureSpotlessWithCommonRules()
 }
