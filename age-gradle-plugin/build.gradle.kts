@@ -1,16 +1,13 @@
-import me.omico.age.dsl.configureMavenLibraryPublish
+import me.omico.age.dsl.javaCompatibility
+import me.omico.age.dsl.withKotlinMavenPublication
 
 plugins {
     `java-gradle-plugin`
     `kotlin-dsl`
-    `maven-publish`
 }
 
-java {
-    sourceCompatibility = JavaVersion.VERSION_11
-    targetCompatibility = JavaVersion.VERSION_11
-    withSourcesJar()
-}
+javaCompatibility(all = JavaVersion.VERSION_11)
+withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
 
 gradlePlugin {
     plugins {
@@ -24,8 +21,3 @@ gradlePlugin {
 dependencies {
     api(project(":age-dsl"))
 }
-
-configureMavenLibraryPublish(
-    mavenPublicationName = "gradlePlugin",
-    versionName = version.toString(),
-)

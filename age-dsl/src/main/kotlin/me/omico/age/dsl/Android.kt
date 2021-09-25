@@ -3,8 +3,13 @@
 package me.omico.age.dsl
 
 import com.android.build.api.dsl.CommonExtension
+import com.android.build.gradle.BaseExtension
 import org.gradle.api.Plugin
 import org.gradle.api.Project
+import org.gradle.api.tasks.bundling.Jar
+import org.gradle.kotlin.dsl.configure
+import org.gradle.kotlin.dsl.create
+import org.gradle.kotlin.dsl.get
 
 fun Project.withAndroidApplication(block: Plugin<in Any>.() -> Unit) =
     plugins.withId("com.android.application", block)
@@ -26,4 +31,16 @@ fun Project.configureAndroidCommon(block: CommonExtension<*, *, *, *>.() -> Unit
 
 fun Project.withBuildType(buildType: String, block: () -> Unit) {
     if (taskRequestContains(buildType)) block()
+}
+
+fun Project.withAndroidSourcesJar() {
+    configure<BaseExtension> {
+        tasks.create("androidSourcesJar", Jar::class) {
+            archiveClassifier.set("sources")
+            from(
+                sourceSets["main"].java.srcDirs,
+                "src/main/kotlin",
+            )
+        }
+    }
 }

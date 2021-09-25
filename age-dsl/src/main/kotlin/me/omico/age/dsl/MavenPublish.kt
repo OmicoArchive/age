@@ -9,9 +9,11 @@ import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.get
 import org.gradle.plugins.signing.SigningExtension
 
-fun Project.configureMavenLibraryPublish(
-    mavenPublicationName: String,
-    versionName: String,
+fun Project.configureMavenPublication(
+    mavenPublicationName: String = "maven",
+    versionName: String = version.toString(),
+    signed: Boolean = true,
+    block: MavenPublication.() -> Unit,
 ) {
     apply(plugin = "org.gradle.maven-publish")
     apply(plugin = "org.gradle.signing")
@@ -22,8 +24,6 @@ fun Project.configureMavenLibraryPublish(
                     groupId = getProperty<String>("POM_GROUP_ID")
                     artifactId = getProperty<String>("POM_ARTIFACT_ID")
                     version = versionName
-                    from(components["kotlin"])
-                    artifact(tasks["sourcesJar"])
                     pom {
                         name.set(getProperty<String>("POM_NAME"))
                         description.set(getProperty<String>("POM_DESCRIPTION"))
@@ -46,6 +46,7 @@ fun Project.configureMavenLibraryPublish(
                             url.set(getProperty<String>("POM_SCM_URL"))
                         }
                     }
+                    block()
                 }
             }
             repositories {
@@ -61,13 +62,46 @@ fun Project.configureMavenLibraryPublish(
                     setUrl(localProperties.getProperty(name))
                 }
             }
-            if (!isSnapshot(versionName)) {
+            if (signed && !isSnapshot(versionName)) {
                 configure<SigningExtension> {
                     useGpgCmd()
                     sign(publications[mavenPublicationName])
                 }
             }
         }
+    }
+}
+
+fun Project.withKotlinMavenPublication(
+    mavenPublicationName: String = "maven",
+    versionName: String = version.toString(),
+    signed: Boolean = true,
+) {
+    withJavaSourcesJar()
+    configureMavenPublication(
+        mavenPublicationName = mavenPublicationName,
+        versionName = versionName,
+        signed = signed,
+    ) {
+        from(components["kotlin"])
+        artifact(tasks["sourcesJar"])
+    }
+}
+
+fun Project.withKotlinAndroidMavenPublication(
+    mavenPublicationName: String = "maven",
+    versionName: String = version.toString(),
+    signed: Boolean = true,
+    componentName: String = "release",
+) {
+    withAndroidSourcesJar()
+    configureMavenPublication(
+        mavenPublicationName = mavenPublicationName,
+        versionName = versionName,
+        signed = signed,
+    ) {
+        from(components[componentName])
+        artifact(tasks["androidSourcesJar"])
     }
 }
 
