@@ -1,5 +1,8 @@
+@file:Suppress("unused")
+
 package me.omico.age.dsl
 
+import com.android.build.gradle.LibraryExtension
 import org.gradle.api.Project
 import org.gradle.api.publish.PublishingExtension
 import org.gradle.api.publish.maven.MavenPublication
@@ -88,6 +91,7 @@ fun Project.withKotlinMavenPublication(
     }
 }
 
+@Suppress("UnstableApiUsage")
 fun Project.withKotlinAndroidMavenPublication(
     mavenPublicationName: String = "maven",
     versionName: String = version.toString(),
@@ -95,6 +99,13 @@ fun Project.withKotlinAndroidMavenPublication(
     componentName: String = "release",
 ) {
     withAndroidSourcesJar()
+    withAndroidLibrary {
+        configure<LibraryExtension> {
+            publishing {
+                singleVariant(componentName)
+            }
+        }
+    }
     configureMavenPublication(
         mavenPublicationName = mavenPublicationName,
         versionName = versionName,
