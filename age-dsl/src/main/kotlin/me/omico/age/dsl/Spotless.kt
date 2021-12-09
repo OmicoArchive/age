@@ -16,75 +16,70 @@ fun Project.configureSpotless(block: SpotlessExtension.() -> Unit) {
     plugins.withId("com.diffplug.spotless") { configure(block) }
 }
 
-private const val DEFAULT_KT_LINT_VERSION = "0.42.1"
-
-fun Project.configureSpotlessWithCommonRules() =
-    configureSpotless {
-        androidXml()
-        gradleVersionCatalogs()
-        intelliJIDEARunConfiguration()
-        kotlin()
-        kotlinGradle()
-    }
+private const val DEFAULT_KT_LINT_VERSION = "0.43.2"
 
 fun SpotlessExtension.androidXml(
-    block: FormatExtension.() -> Unit = {},
-) = format("androidXml") {
-    target(
-        "**/AndroidManifest.xml",
-        "src/**/*.xml",
-    )
-    indentWithSpaces()
-    trimTrailingWhitespace()
-    endWithNewline()
-    block()
-}
+    block: FormatExtension.() -> Unit = {
+        target(
+            "**/AndroidManifest.xml",
+            "src/**/*.xml",
+        )
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    },
+) = format("androidXml", block)
 
 fun SpotlessExtension.gradleVersionCatalogs(
-    block: FormatExtension.() -> Unit = {},
-) = format("gradleVersionCatalogs") {
-    target(
-        "**/*.versions.toml",
-    )
-    indentWithSpaces()
-    trimTrailingWhitespace()
-    endWithNewline()
-    block()
-}
+    block: FormatExtension.() -> Unit = {
+        target(
+            "**/*.versions.toml",
+        )
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    },
+) = format("gradleVersionCatalogs", block)
 
 fun SpotlessExtension.intelliJIDEARunConfiguration(
-    block: FormatExtension.() -> Unit = {},
-) = format("intelliJIDEARunConfiguration") {
-    target(
-        ".run/*.xml",
-        ".idea/runConfigurations/*.xml",
-    )
-    indentWithSpaces()
-    trimTrailingWhitespace()
-    endWithNewline()
-    block()
-}
+    block: FormatExtension.() -> Unit = {
+        target(
+            ".run/*.xml",
+            ".idea/runConfigurations/*.xml",
+        )
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    },
+) = format("intelliJIDEARunConfiguration", block)
 
 fun SpotlessExtension.kotlin(
     ktLintVersion: String = DEFAULT_KT_LINT_VERSION,
-    block: KotlinExtension.() -> Unit = {},
-) = kotlin {
-    target("src/**/*.kt")
-    ktlint(ktLintVersion)
-    indentWithSpaces()
-    trimTrailingWhitespace()
-    endWithNewline()
-    block()
-}
+    block: KotlinExtension.() -> Unit = {
+        target("src/**/*.kt")
+        ktlint(ktLintVersion)
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    },
+) = kotlin(block)
 
 fun SpotlessExtension.kotlinGradle(
     ktLintVersion: String = DEFAULT_KT_LINT_VERSION,
-    block: KotlinGradleExtension.() -> Unit = {},
-) = kotlinGradle {
-    target("**/*.gradle.kts")
-    ktlint(ktLintVersion)
-    indentWithSpaces()
-    trimTrailingWhitespace()
-    endWithNewline()
-    block()
-}
+    block: KotlinGradleExtension.() -> Unit = {
+        target("**/*.gradle.kts")
+        ktlint(ktLintVersion)
+        indentWithSpaces()
+        trimTrailingWhitespace()
+        endWithNewline()
+    },
+) = kotlinGradle(block)
+
+fun SpotlessExtension.protobuf(
+    clangFormatVersion: String = "13.0.0",
+    style: String = "Google",
+    block: FormatExtension.() -> Unit = {
+        target("src/**/*.proto")
+        clangFormat(clangFormatVersion).style(style)
+    },
+) = format("protobuf", block)

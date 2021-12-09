@@ -1,5 +1,10 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import me.omico.age.dsl.configureSpotlessWithCommonRules
+import me.omico.age.dsl.androidXml
+import me.omico.age.dsl.configureSpotless
+import me.omico.age.dsl.gradleVersionCatalogs
+import me.omico.age.dsl.intelliJIDEARunConfiguration
+import me.omico.age.dsl.kotlin
+import me.omico.age.dsl.kotlinGradle
 
 plugins {
     id("com.diffplug.spotless")
@@ -10,7 +15,13 @@ allprojects {
     group = "me.omico.age"
     version = "1.0.0-SNAPSHOT"
     configureDependencyUpdates()
-    configureSpotlessWithCommonRules()
+    configureSpotless {
+        androidXml()
+        gradleVersionCatalogs()
+        intelliJIDEARunConfiguration()
+        kotlin()
+        kotlinGradle()
+    }
 }
 
 fun Project.configureDependencyUpdates() {
