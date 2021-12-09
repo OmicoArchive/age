@@ -9,12 +9,10 @@ java {
     targetCompatibility = JavaVersion.VERSION_11
 }
 
-pluginManager.withPlugin("org.gradle.kotlin.kotlin-dsl") {
-    val catalogs = extensions.getByType<VersionCatalogsExtension>()
-    val libs = catalogs.named("libs")
-    dependencies {
-        implementation(gradleApi())
-        implementation(gradleKotlinDsl())
-        implementation(libs.findBundle("dsl").get())
+dependencies {
+    implementation(gradleApi())
+    implementation(gradleKotlinDsl())
+    versionCatalogs {
+        implementation(named("libs").findBundle("dsl").get())
     }
 }
