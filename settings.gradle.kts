@@ -6,20 +6,19 @@ enableFeaturePreview("VERSION_CATALOGS")
 
 pluginManagement {
     val versions = object {
-        val gradleEnterprisePlugin = "3.6.3"
+        val gradleEnterprisePlugin = "3.7.2"
         val gradleVersionsPlugin = "0.39.0"
-        val kotlinPlugin = "1.5.31"
-        val spotlessPlugin = "5.17.1"
+        val kotlinPlugin = "1.6.0"
+        val spotlessPlugin = "6.0.4"
     }
     plugins {
         id("com.diffplug.spotless") version versions.spotlessPlugin
         id("com.github.ben-manes.versions") version versions.gradleVersionsPlugin
         id("com.gradle.enterprise") version versions.gradleEnterprisePlugin
-        id("org.jetbrains.kotlin.jvm") version versions.kotlinPlugin
+        kotlin("jvm") version versions.kotlinPlugin
     }
     repositories {
         gradlePluginPortal()
-        google()
         mavenCentral()
     }
 }
