@@ -8,8 +8,8 @@ import org.gradle.api.Plugin
 import org.gradle.api.Project
 import org.gradle.api.tasks.bundling.Jar
 import org.gradle.kotlin.dsl.configure
-import org.gradle.kotlin.dsl.create
 import org.gradle.kotlin.dsl.get
+import org.gradle.kotlin.dsl.register
 
 fun Project.withAndroidApplication(block: Plugin<in Any>.() -> Unit) =
     plugins.withId("com.android.application", block)
@@ -35,7 +35,7 @@ fun Project.withBuildType(buildType: String, block: () -> Unit) {
 
 fun Project.withAndroidSourcesJar() {
     configure<BaseExtension> {
-        tasks.create("androidSourcesJar", Jar::class) {
+        tasks.register<Jar>("androidSourcesJar") {
             archiveClassifier.set("sources")
             from(
                 sourceSets["main"].java.srcDirs,

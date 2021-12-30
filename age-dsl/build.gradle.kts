@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import me.omico.age.dsl.javaCompatibility
 import me.omico.age.dsl.withKotlinMavenPublication
 
@@ -11,5 +13,7 @@ withKotlinMavenPublication(mavenPublicationName = "dsl")
 dependencies {
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    compileOnly(libs.bundles.dsl)
+    versionCatalogs {
+        compileOnly(named("libs").findBundle("dsl").get())
+    }
 }
