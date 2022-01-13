@@ -1,12 +1,13 @@
 @file:Suppress("unused")
 
-package me.omico.age.dsl
+package me.omico.age.spotless
 
 import com.diffplug.gradle.spotless.FormatExtension
 import com.diffplug.gradle.spotless.KotlinExtension
 import com.diffplug.gradle.spotless.KotlinGradleExtension
 import com.diffplug.gradle.spotless.SpotlessExtension
 import com.diffplug.gradle.spotless.SpotlessPlugin
+import com.diffplug.spotless.kotlin.KtLintStep
 import org.gradle.api.Project
 import org.gradle.kotlin.dsl.apply
 import org.gradle.kotlin.dsl.configure
@@ -15,8 +16,6 @@ fun Project.configureSpotless(block: SpotlessExtension.() -> Unit) {
     apply<SpotlessPlugin>()
     plugins.withId("com.diffplug.spotless") { configure(block) }
 }
-
-private const val DEFAULT_KT_LINT_VERSION = "0.43.2"
 
 fun SpotlessExtension.androidXml(
     block: FormatExtension.() -> Unit = {
@@ -54,7 +53,7 @@ fun SpotlessExtension.intelliJIDEARunConfiguration(
 ) = format("intelliJIDEARunConfiguration", block)
 
 fun SpotlessExtension.kotlin(
-    ktLintVersion: String = DEFAULT_KT_LINT_VERSION,
+    ktLintVersion: String = KtLintStep.defaultVersion(),
     block: KotlinExtension.() -> Unit = {
         target("src/**/*.kt")
         ktlint(ktLintVersion)
@@ -65,7 +64,7 @@ fun SpotlessExtension.kotlin(
 ) = kotlin(block)
 
 fun SpotlessExtension.kotlinGradle(
-    ktLintVersion: String = DEFAULT_KT_LINT_VERSION,
+    ktLintVersion: String = KtLintStep.defaultVersion(),
     block: KotlinGradleExtension.() -> Unit = {
         target("**/*.gradle.kts")
         ktlint(ktLintVersion)

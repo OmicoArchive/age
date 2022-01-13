@@ -13,7 +13,6 @@ withKotlinMavenPublication(mavenPublicationName = "dsl")
 dependencies {
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    versionCatalogs {
-        compileOnly(named("libs").findBundle("dsl").get())
-    }
+    compileOnly(libs.gradlePlugin.android)
+    compileOnly(libs.gradlePlugin.kotlin)
 }

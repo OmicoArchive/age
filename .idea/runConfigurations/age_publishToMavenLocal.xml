@@ -21,6 +21,7 @@
       <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishDslPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-dsl" vmOptions="" scriptParameters="" />
       <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/project" vmOptions="" scriptParameters="" />
       <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/settings" vmOptions="" scriptParameters="" />
+      <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/spotless" vmOptions="" scriptParameters="" />
     </method>
   </configuration>
 </component>

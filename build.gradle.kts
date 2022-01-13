@@ -1,10 +1,10 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import me.omico.age.dsl.androidXml
-import me.omico.age.dsl.configureSpotless
-import me.omico.age.dsl.gradleVersionCatalogs
-import me.omico.age.dsl.intelliJIDEARunConfiguration
-import me.omico.age.dsl.kotlin
-import me.omico.age.dsl.kotlinGradle
+import me.omico.age.spotless.androidXml
+import me.omico.age.spotless.configureSpotless
+import me.omico.age.spotless.gradleVersionCatalogs
+import me.omico.age.spotless.intelliJIDEARunConfiguration
+import me.omico.age.spotless.kotlin
+import me.omico.age.spotless.kotlinGradle
 
 plugins {
     id("com.diffplug.spotless")

@@ -4,13 +4,13 @@ kotlin = "1.6.10"
 spotless = "6.1.0"
 
 [libraries]
-gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
-gradle-plugin-spotless = { module = "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin", version.ref = "spotless" }
-gradle-plugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
+gradlePlugin-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
+gradlePlugin-spotless = { module = "com.diffplug.spotless:com.diffplug.spotless.gradle.plugin", version.ref = "spotless" }
+gradlePlugin-kotlin = { module = "org.jetbrains.kotlin:kotlin-gradle-plugin", version.ref = "kotlin" }
 
 [bundles]
 dsl = [
-    "gradle-plugin-android",
-    "gradle-plugin-spotless",
-    "gradle-plugin-kotlin",
+    "gradlePlugin-android",
+    "gradlePlugin-spotless",
+    "gradlePlugin-kotlin",
 ]

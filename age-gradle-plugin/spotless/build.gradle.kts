@@ -1,3 +1,5 @@
+@file:Suppress("UnstableApiUsage")
+
 import me.omico.age.dsl.javaCompatibility
 import me.omico.age.dsl.withKotlinMavenPublication
 
@@ -11,15 +13,15 @@ withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
 
 gradlePlugin {
     plugins {
-        register("age-project") {
-            id = "me.omico.age.project"
-            implementationClass = "me.omico.age.project.AgeProjectPlugin"
+        register("age-spotless") {
+            id = "me.omico.age.spotless"
+            implementationClass = "me.omico.age.spotless.AgeSpotlessPlugin"
         }
     }
 }
 
 dependencies {
-    api(project(":age-dsl"))
+    compileOnly(libs.gradlePlugin.spotless)
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
 }
