@@ -7,9 +7,9 @@ enableFeaturePreview("VERSION_CATALOGS")
 pluginManagement {
     val versions = object {
         val gradleEnterprisePlugin = "3.8"
-        val gradleVersionsPlugin = "0.39.0"
+        val gradleVersionsPlugin = "0.41.0"
         val kotlinPlugin = "1.6.10"
-        val spotlessPlugin = "6.10.0"
+        val spotlessPlugin = "6.2.0"
     }
     plugins {
         id("com.diffplug.spotless") version versions.spotlessPlugin
