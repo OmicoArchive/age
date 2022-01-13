@@ -11,9 +11,9 @@ withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
 
 gradlePlugin {
     plugins {
-        register("androidGradleExtensions") {
-            id = "me.omico.age"
-            implementationClass = "me.omico.age.AndroidGradleExtensionsPlugin"
+        register("age-project") {
+            id = "me.omico.age.project"
+            implementationClass = "me.omico.age.project.AgeProjectPlugin"
         }
     }
 }

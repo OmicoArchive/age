@@ -1,4 +1,4 @@
-package me.omico.age
+package me.omico.age.project
 
 sealed class AndroidModuleType {
 
