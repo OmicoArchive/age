@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 plugins {
     `kotlin-dsl`
 }
@@ -12,7 +10,5 @@ java {
 dependencies {
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
-    versionCatalogs {
-        implementation(named("libs").findBundle("dsl").get())
-    }
+    implementation(versionCatalogs.named("libs").findBundle("dsl").get())
 }

@@ -1,5 +1,3 @@
-@file:Suppress("UnstableApiUsage")
-
 import me.omico.age.dsl.javaCompatibility
 import me.omico.age.dsl.withKotlinMavenPublication
 
