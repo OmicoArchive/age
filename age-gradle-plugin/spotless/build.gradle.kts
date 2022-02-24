@@ -19,7 +19,7 @@ gradlePlugin {
 }
 
 dependencies {
-    compileOnly(libs.gradlePlugin.spotless)
-    implementation(gradleApi())
-    implementation(gradleKotlinDsl())
+    compileOnly(gradleApi())
+    compileOnly(gradleKotlinDsl())
+    compileOnly(libs.gradle.plugin.spotless)
 }

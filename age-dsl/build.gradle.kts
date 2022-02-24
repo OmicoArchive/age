@@ -11,6 +11,6 @@ withKotlinMavenPublication(mavenPublicationName = "dsl")
 dependencies {
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
-    compileOnly(libs.gradlePlugin.android)
-    compileOnly(libs.gradlePlugin.kotlin)
+    compileOnly(libs.gradle.plugin.android)
+    compileOnly(libs.gradle.plugin.kotlin)
 }

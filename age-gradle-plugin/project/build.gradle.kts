@@ -20,6 +20,6 @@ gradlePlugin {
 
 dependencies {
     api(project(":age-dsl"))
-    implementation(gradleApi())
-    implementation(gradleKotlinDsl())
+    compileOnly(gradleApi())
+    compileOnly(gradleKotlinDsl())
 }

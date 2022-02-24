@@ -6,7 +6,7 @@ pluginManagement {
     val versions = object {
         val gradleEnterprisePlugin = "3.8.1"
         val gradleVersionsPlugin = "0.42.0"
-        val kotlinPlugin = "1.6.10"
+        val kotlinPlugin = "1.5.31"
         val spotlessPlugin = "6.3.0"
     }
     plugins {

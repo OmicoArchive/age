@@ -9,7 +9,12 @@
         <list />
       </option>
       <option name="taskNames">
-        <list />
+        <list>
+          <option value=":age-dsl:publishDslPublicationToMavenLocal" />
+          <option value=":age-gradle-plugin:project:publishGradlePluginPublicationToMavenLocal" />
+          <option value=":age-gradle-plugin:settings:publishGradlePluginPublicationToMavenLocal" />
+          <option value=":age-gradle-plugin:spotless:publishGradlePluginPublicationToMavenLocal" />
+        </list>
       </option>
       <option name="vmOptions" />
     </ExternalSystemSettings>
@@ -18,10 +23,6 @@
     <DebugAllEnabled>false</DebugAllEnabled>
     <method v="2">
       <option name="RunConfigurationTask" enabled="true" run_configuration_name="age.spotlessApply" run_configuration_type="GradleRunConfiguration" />
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishDslPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-dsl" vmOptions="" scriptParameters="" />
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/project" vmOptions="" scriptParameters="" />
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/settings" vmOptions="" scriptParameters="" />
-      <option name="Gradle.BeforeRunTask" enabled="true" tasks="publishGradlePluginPublicationToMavenLocal" externalProjectPath="$PROJECT_DIR$/age-gradle-plugin/spotless" vmOptions="" scriptParameters="" />
     </method>
   </configuration>
 </component>
