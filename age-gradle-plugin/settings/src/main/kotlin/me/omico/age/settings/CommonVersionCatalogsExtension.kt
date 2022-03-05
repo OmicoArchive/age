@@ -14,10 +14,6 @@ open class CommonVersionCatalogsExtension @Inject constructor(
     private val objectFactory: ObjectFactory,
 ) {
 
-    init {
-        settings.enableFeaturePreview("VERSION_CATALOGS")
-    }
-
     fun create(namespace: String, isSnapshot: Boolean = false) =
         settings.dependencyResolutionManagement.versionCatalogs {
             val filePath = when {
