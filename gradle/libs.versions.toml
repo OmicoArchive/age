@@ -1,7 +1,7 @@
 [versions]
-android-gradle-plugin = "7.3.0-alpha03"
+android-gradle-plugin = "7.4.0-alpha03"
 kotlin = "1.5.31"
-spotless = "6.3.0"
+spotless = "6.7.1"
 
 [libraries]
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
