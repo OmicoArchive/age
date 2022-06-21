@@ -9,8 +9,8 @@ javaCompatibility(all = JavaVersion.VERSION_11)
 withKotlinMavenPublication(mavenPublicationName = "dsl")
 
 dependencies {
+    compileOnly(embeddedKotlin("gradle-plugin"))
     compileOnly(gradleApi())
     compileOnly(gradleKotlinDsl())
     compileOnly(libs.gradle.plugin.android)
-    compileOnly(libs.gradle.plugin.kotlin)
 }

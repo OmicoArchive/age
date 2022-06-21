@@ -6,16 +6,14 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     val versions = object {
-        val gradleEnterprisePlugin = "3.8.1"
+        val gradleEnterprisePlugin = "3.10.2"
         val gradleVersionsPlugin = "0.42.0"
-        val kotlinPlugin = "1.5.31"
-        val spotlessPlugin = "6.7.1"
+        val spotlessPlugin = "6.7.2"
     }
     plugins {
         id("com.diffplug.spotless") version versions.spotlessPlugin
         id("com.github.ben-manes.versions") version versions.gradleVersionsPlugin
         id("com.gradle.enterprise") version versions.gradleEnterprisePlugin
-        kotlin("jvm") version versions.kotlinPlugin
     }
     repositories {
         gradlePluginPortal()
