@@ -22,6 +22,7 @@ gradlePlugin {
 }
 
 dependencies {
+    implementation(projects.ageGradlePlugin.settings.autoModuleCreation)
     implementation(projects.ageGradlePlugin.settings.commonVersionCatalogs)
 }
 

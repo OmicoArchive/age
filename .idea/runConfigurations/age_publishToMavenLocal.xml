@@ -12,6 +12,7 @@
         <list>
           <option value=":age-dsl:publishDslPublicationToMavenLocal" />
           <option value=":age-gradle-plugin:project:publishGradlePluginPublicationToMavenLocal" />
+          <option value=":age-gradle-plugin:settings:auto-module-creation:publishGradlePluginPublicationToMavenLocal" />
           <option value=":age-gradle-plugin:settings:common-version-catalogs:publishGradlePluginPublicationToMavenLocal" />
           <option value=":age-gradle-plugin:settings:publishGradlePluginPublicationToMavenLocal" />
           <option value=":age-gradle-plugin:spotless:publishGradlePluginPublicationToMavenLocal" />
