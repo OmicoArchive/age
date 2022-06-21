@@ -10,5 +10,5 @@ java {
 dependencies {
     implementation(gradleApi())
     implementation(gradleKotlinDsl())
-    implementation(versionCatalogs.named("libs").findBundle("dsl").get())
+    implementation(libs.bundles.dsl)
 }
