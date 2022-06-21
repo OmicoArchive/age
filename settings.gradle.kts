@@ -44,4 +44,5 @@ gradleEnterprise {
 include(":age-dsl")
 include(":age-gradle-plugin:project")
 include(":age-gradle-plugin:settings")
+include(":age-gradle-plugin:settings:common-version-catalogs")
 include(":age-gradle-plugin:spotless")
