@@ -2,6 +2,8 @@
 
 rootProject.name = "android-gradle-extensions"
 
+enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
+
 pluginManagement {
     val versions = object {
         val gradleEnterprisePlugin = "3.8.1"
