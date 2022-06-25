@@ -1,6 +1,6 @@
 @file:Suppress("UnstableApiUsage")
 
-rootProject.name = "android-gradle-extensions"
+rootProject.name = "age"
 
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
