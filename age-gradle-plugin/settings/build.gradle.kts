@@ -1,4 +1,4 @@
-import me.omico.age.dsl.javaCompatibility
+import me.omico.age.dsl.withKotlinDsl
 import me.omico.age.dsl.withKotlinMavenPublication
 
 plugins {
@@ -7,9 +7,15 @@ plugins {
 
 subprojects {
     group = "me.omico.age.settings"
+    withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
+    withKotlinDsl {
+        dependencies {
+            compileOnly(gradleApi())
+            compileOnly(gradleKotlinDsl())
+        }
+    }
 }
 
-javaCompatibility(all = JavaVersion.VERSION_11)
 withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
 
 gradlePlugin {
