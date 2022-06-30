@@ -17,7 +17,10 @@ fun AutoModuleCreationExtension.createTemplate(module: String, template: String,
         sourceType.ifNotNullOrEmpty { sourceType ->
             it.resolve(sourceType).mkdirs()
             group.ifNotNullOrEmpty { group ->
-                it.resolve(sourceType).resolve(group.replace(".", File.separator)).resolve(module).mkdirs()
+                it.resolve(sourceType)
+                    .resolve(group.replace(".", File.separator))
+                    .resolve(module.replace("-", "."))
+                    .mkdirs()
             }
         }
     }
