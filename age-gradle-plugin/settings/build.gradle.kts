@@ -9,6 +9,17 @@ subprojects {
     group = "me.omico.age.settings"
     withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
     withKotlinDsl {
+        kotlin {
+            target {
+                compilations.all {
+                    kotlinOptions {
+                        freeCompilerArgs = listOf(
+                            "-Xopt-in=kotlin.RequiresOptIn",
+                        )
+                    }
+                }
+            }
+        }
         dependencies {
             compileOnly(gradleApi())
             compileOnly(gradleKotlinDsl())

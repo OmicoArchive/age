@@ -4,9 +4,10 @@ import me.omico.age.settings.AutoModuleCreationConfigs
 import me.omico.age.settings.AutoModuleCreationExtension
 import me.omico.age.settings.group
 import me.omico.age.settings.sourceType
+import me.omico.age.settings.template
 import java.io.File
 
-fun AutoModuleCreationExtension.createTemplate(module: String, template: String, variables: Map<String, String>) {
+fun AutoModuleCreationExtension.createTemplate(module: String) {
     val settings = AutoModuleCreationConfigs.settings
     var dir = settings.rootDir
     currentPath.split(":").forEach { dir = dir.resolve(it) }
@@ -17,10 +18,7 @@ fun AutoModuleCreationExtension.createTemplate(module: String, template: String,
         sourceType.ifNotNullOrEmpty { sourceType ->
             it.resolve(sourceType).mkdirs()
             group.ifNotNullOrEmpty { group ->
-                it.resolve(sourceType)
-                    .resolve(group.replace(".", File.separator))
-                    .resolve(module.replace("-", "."))
-                    .mkdirs()
+                it.resolve(sourceType).resolve(group.replace(".", File.separator)).mkdirs()
             }
         }
     }
