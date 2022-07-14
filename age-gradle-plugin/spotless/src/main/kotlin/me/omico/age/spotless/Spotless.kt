@@ -57,6 +57,7 @@ fun SpotlessExtension.kotlin(
     block: KotlinExtension.() -> Unit = {
         target("src/**/*.kt")
         ktlint(ktLintVersion)
+            .editorConfigOverride(defaultEditorConfig)
         indentWithSpaces()
         trimTrailingWhitespace()
         endWithNewline()
@@ -68,6 +69,7 @@ fun SpotlessExtension.kotlinGradle(
     block: KotlinGradleExtension.() -> Unit = {
         target("**/*.gradle.kts")
         ktlint(ktLintVersion)
+            .editorConfigOverride(defaultEditorConfig)
         indentWithSpaces()
         trimTrailingWhitespace()
         endWithNewline()
@@ -82,3 +84,9 @@ fun SpotlessExtension.protobuf(
         clangFormat(clangFormatVersion).style(style)
     },
 ) = format("protobuf", block)
+
+val defaultEditorConfig: Map<String, String> = mapOf(
+    "disabled_rules" to "filename",
+    "ij_kotlin_allow_trailing_comma" to "true",
+    "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+)

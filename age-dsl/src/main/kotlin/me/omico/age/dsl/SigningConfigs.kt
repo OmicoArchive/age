@@ -32,7 +32,7 @@ private fun Project.hasNullSigningConfigProperties(properties: Properties): Bool
             "You should set $nullProperties in your properties file. \n" +
             "Otherwise this signingConfig will not be applied.\n" +
             "The default properties file is ${rootDir}${File.separator}local.properties.\n" +
-            "============================================================"
+            "============================================================",
     )
     return hasNullProperties
 }

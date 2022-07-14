@@ -8,7 +8,7 @@ pluginManagement {
     val versions = object {
         val gradleEnterprisePlugin = "3.10.2"
         val gradleVersionsPlugin = "0.42.0"
-        val spotlessPlugin = "6.7.2"
+        val spotlessPlugin = "6.8.0"
     }
     plugins {
         id("com.diffplug.spotless") version versions.spotlessPlugin
