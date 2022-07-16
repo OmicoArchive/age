@@ -1,5 +1,4 @@
 import com.github.benmanes.gradle.versions.updates.DependencyUpdatesTask
-import me.omico.age.spotless.androidXml
 import me.omico.age.spotless.configureSpotless
 import me.omico.age.spotless.gradleVersionCatalogs
 import me.omico.age.spotless.intelliJIDEARunConfiguration
@@ -16,7 +15,6 @@ allprojects {
     version = "1.0.0-SNAPSHOT"
     configureDependencyUpdates()
     configureSpotless {
-        androidXml()
         gradleVersionCatalogs()
         intelliJIDEARunConfiguration()
         kotlin()
