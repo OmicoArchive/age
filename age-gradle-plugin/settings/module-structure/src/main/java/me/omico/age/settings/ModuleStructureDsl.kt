@@ -10,10 +10,10 @@ import me.omico.age.settings.internal.resolveVariables
 import org.gradle.api.initialization.Settings
 import org.gradle.kotlin.dsl.configure
 
-fun Settings.autoModuleCreation(block: AutoModuleCreationExtension.() -> Unit) = extensions.configure(block)
+fun Settings.moduleStructure(block: ModuleStructureExtension.() -> Unit) = extensions.configure(block)
 
-fun AutoModuleCreationExtension.configs(block: AutoModuleCreationConfigs.() -> Unit) =
-    AutoModuleCreationConfigs.apply(block)
+fun ModuleStructureExtension.configs(block: ModuleStructureConfigs.() -> Unit) =
+    ModuleStructureConfigs.apply(block)
 
 /**
  * Create a folder for this project. You can also nest folders infinitely.
@@ -34,10 +34,10 @@ fun AutoModuleCreationExtension.configs(block: AutoModuleCreationConfigs.() -> U
  * @param builder Other configurations for this folder.
  *
  */
-fun AutoModuleCreationExtension.folder(
+fun ModuleStructureExtension.folder(
     name: String,
-    builder: AutoModuleCreationExtension.() -> Unit,
-): AutoModuleCreationExtension =
+    builder: ModuleStructureExtension.() -> Unit,
+): ModuleStructureExtension =
     FolderBuilder(
         currentPath = "$currentPath:$name",
         variables = resolveVariables(name),
@@ -61,7 +61,7 @@ fun AutoModuleCreationExtension.folder(
  * @param name The module name.
  *
  */
-fun AutoModuleCreationExtension.module(name: String): AutoModuleCreationExtension =
+fun ModuleStructureExtension.module(name: String): ModuleStructureExtension =
     apply { module(name) {} }
 
 /**
@@ -77,7 +77,7 @@ fun AutoModuleCreationExtension.module(name: String): AutoModuleCreationExtensio
  * @param name The module name.
  *
  */
-fun AutoModuleCreationExtension.module(name: String, template: String): AutoModuleCreationExtension =
+fun ModuleStructureExtension.module(name: String, template: String): ModuleStructureExtension =
     apply { module(name) { this.template = template } }
 
 /**
@@ -103,5 +103,5 @@ fun AutoModuleCreationExtension.module(name: String, template: String): AutoModu
  * @param name The module name.
  *
  */
-fun <T : Any> AutoModuleCreationExtension.variable(name: String, value: T) =
+fun <T : Any> ModuleStructureExtension.variable(name: String, value: T) =
     variables.put(name, value.toString())

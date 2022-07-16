@@ -14,8 +14,8 @@
           <option value="build" />
           <option value=":age-dsl:publishDslPublicationToMavenRepository" />
           <option value=":age-gradle-plugin:project:publishGradlePluginPublicationToMavenRepository" />
-          <option value=":age-gradle-plugin:settings:auto-module-creation:publishGradlePluginPublicationToMavenRepository" />
           <option value=":age-gradle-plugin:settings:common-version-catalogs:publishGradlePluginPublicationToMavenRepository" />
+          <option value=":age-gradle-plugin:settings:module-structure:publishGradlePluginPublicationToMavenRepository" />
           <option value=":age-gradle-plugin:settings:publishGradlePluginPublicationToMavenRepository" />
           <option value=":age-gradle-plugin:spotless:publishGradlePluginPublicationToMavenRepository" />
         </list>

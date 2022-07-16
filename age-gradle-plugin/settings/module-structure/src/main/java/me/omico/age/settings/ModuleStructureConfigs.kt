@@ -3,10 +3,10 @@ package me.omico.age.settings
 import org.gradle.api.initialization.Settings
 import java.io.File
 
-interface AutoModuleCreationConfigs {
+interface ModuleStructureConfigs {
     var templatesFolder: File
 
-    companion object : AutoModuleCreationConfigs {
+    companion object : ModuleStructureConfigs {
 
         internal lateinit var settings: Settings
 

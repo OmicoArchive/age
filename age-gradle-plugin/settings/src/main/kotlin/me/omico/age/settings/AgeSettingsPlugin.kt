@@ -9,7 +9,7 @@ import org.gradle.kotlin.dsl.apply
 class AgeSettingsPlugin : Plugin<Settings> {
 
     override fun apply(target: Settings) {
-        target.apply<AutoModuleCreationPlugin>()
         target.apply<CommonVersionCatalogsPlugin>()
+        target.apply<ModuleStructurePlugin>()
     }
 }

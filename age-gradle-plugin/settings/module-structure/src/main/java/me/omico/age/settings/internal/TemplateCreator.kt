@@ -1,7 +1,7 @@
 package me.omico.age.settings.internal
 
-import me.omico.age.settings.AutoModuleCreationConfigs
-import me.omico.age.settings.AutoModuleCreationExtension
+import me.omico.age.settings.ModuleStructureConfigs
+import me.omico.age.settings.ModuleStructureExtension
 import me.omico.age.settings.group
 import me.omico.age.settings.name
 import me.omico.age.settings.sourceType
@@ -18,8 +18,8 @@ import kotlin.io.path.isRegularFile
 import kotlin.io.path.readText
 import kotlin.io.path.writeText
 
-fun AutoModuleCreationExtension.createTemplate(module: String) {
-    val settings = AutoModuleCreationConfigs.settings
+fun ModuleStructureExtension.createTemplate(module: String) {
+    val settings = ModuleStructureConfigs.settings
     val moduleDirectory: Path = settings.rootDir.toPath()
         .resolve(currentPath.removePrefix(":").replace(":", File.separator))
         .resolve(module)
@@ -38,8 +38,8 @@ fun AutoModuleCreationExtension.createTemplate(module: String) {
     settings.include("$currentPath:$module")
 }
 
-private fun AutoModuleCreationExtension.copyTemplates(moduleDirectory: Path) {
-    val templateDictionary = AutoModuleCreationConfigs.templatesFolder.toPath().resolve(template)
+private fun ModuleStructureExtension.copyTemplates(moduleDirectory: Path) {
+    val templateDictionary = ModuleStructureConfigs.templatesFolder.toPath().resolve(template)
     val templateDictionaryString = templateDictionary.absolutePathString()
     Files.walk(templateDictionary).forEach {
         if (it == templateDictionary) return@forEach
@@ -52,7 +52,7 @@ private fun AutoModuleCreationExtension.copyTemplates(moduleDirectory: Path) {
     }
 }
 
-private fun AutoModuleCreationExtension.targetPath(
+private fun ModuleStructureExtension.targetPath(
     moduleDirectory: Path,
     templateDictionary: String,
     template: Path,
