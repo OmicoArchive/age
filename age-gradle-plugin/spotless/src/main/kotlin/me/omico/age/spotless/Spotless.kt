@@ -66,14 +66,21 @@ fun SpotlessExtension.kotlin(
     licenseHeaderFile?.let(::licenseHeaderFile)?.apply(licenseHeaderConfig)
 }
 
+private val defaultExcludeTargetsForKotlinGradle: Set<String> = setOf(
+    "**/build/kotlin-dsl/**/*.gradle.kts",
+)
+
 fun SpotlessExtension.kotlinGradle(
     targets: List<String> = listOf("**/*.gradle.kts"),
-    excludeTargets: List<String> = listOf(),
+    overrideExcludeTargets: Set<String> = setOf(),
+    additionalExcludeTargets: Set<String> = setOf(),
     ktLintVersion: String = KtLintStep.defaultVersion(),
     editorConfig: Map<String, String> = defaultEditorConfig,
 ) = kotlinGradle {
     target(targets)
-    targetExclude(excludeTargets)
+    overrideExcludeTargets
+        .ifEmpty { defaultExcludeTargetsForKotlinGradle + additionalExcludeTargets }
+        .let { targetExclude(it) }
     ktlint(ktLintVersion)
         .editorConfigOverride(editorConfig)
 }
