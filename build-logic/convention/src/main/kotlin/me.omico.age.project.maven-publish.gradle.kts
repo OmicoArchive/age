@@ -1,0 +1,1 @@
+../../../../../age-gradle-plugin/project/maven-publish/src/main/kotlin/me.omico.age.project.maven-publish.gradle.kts

@@ -1,5 +1,6 @@
 plugins {
     `kotlin-dsl`
+    id("age.build-logic.maven-publish")
 }
 
 // See: https://github.com/gradle/gradle/issues/21151#issuecomment-1172894670

@@ -1,14 +1,9 @@
-import me.omico.age.dsl.withKotlinMavenPublication
-
 plugins {
     `kotlin-dsl`
+    id("age.build-logic.maven-publish")
 }
-
-withKotlinMavenPublication(mavenPublicationName = "dsl")
 
 dependencies {
     compileOnly(embeddedKotlin("gradle-plugin"))
-    compileOnly(gradleApi())
-    compileOnly(gradleKotlinDsl())
     compileOnly(libs.gradle.plugin.android)
 }

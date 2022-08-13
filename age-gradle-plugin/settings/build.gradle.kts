@@ -1,33 +1,11 @@
-import me.omico.age.dsl.withKotlinDsl
-import me.omico.age.dsl.withKotlinMavenPublication
-
 plugins {
     `kotlin-dsl`
+    id("age.build-logic.maven-publish")
 }
 
 subprojects {
     group = "me.omico.age.settings"
-    withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
-    withKotlinDsl {
-        kotlin {
-            target {
-                compilations.all {
-                    kotlinOptions {
-                        freeCompilerArgs = listOf(
-                            "-opt-in=kotlin.RequiresOptIn",
-                        )
-                    }
-                }
-            }
-        }
-        dependencies {
-            compileOnly(gradleApi())
-            compileOnly(gradleKotlinDsl())
-        }
-    }
 }
-
-withKotlinMavenPublication(mavenPublicationName = "gradlePlugin")
 
 gradlePlugin {
     plugins {
@@ -41,9 +19,4 @@ gradlePlugin {
 dependencies {
     implementation(projects.ageGradlePlugin.settings.commonVersionCatalogs)
     implementation(projects.ageGradlePlugin.settings.moduleStructure)
-}
-
-dependencies {
-    compileOnly(gradleApi())
-    compileOnly(gradleKotlinDsl())
 }

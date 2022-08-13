@@ -4,7 +4,6 @@ plugins {
 
 dependencies {
     implementation(embeddedKotlin("gradle-plugin"))
-    implementation(gradleApi())
-    implementation(gradleKotlinDsl())
     implementation(libs.bundles.dsl)
+    implementation(libs.gradle.plugin.versions)
 }

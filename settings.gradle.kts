@@ -5,6 +5,7 @@ rootProject.name = "age"
 enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
+    includeBuild("build-logic")
     val versions = object {
         val gradleEnterprisePlugin = "3.10.3"
         val gradleVersionsPlugin = "0.42.0"
@@ -17,6 +18,7 @@ pluginManagement {
     }
     repositories {
         gradlePluginPortal()
+        google()
         mavenCentral()
     }
 }
@@ -43,6 +45,7 @@ gradleEnterprise {
 
 include(":age-dsl")
 include(":age-gradle-plugin:project")
+include(":age-gradle-plugin:project:maven-publish")
 include(":age-gradle-plugin:settings")
 include(":age-gradle-plugin:settings:common-version-catalogs")
 include(":age-gradle-plugin:settings:module-structure")
