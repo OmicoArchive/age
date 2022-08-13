@@ -6,9 +6,9 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     val versions = object {
-        val gradleEnterprisePlugin = "3.10.2"
+        val gradleEnterprisePlugin = "3.10.3"
         val gradleVersionsPlugin = "0.42.0"
-        val spotlessPlugin = "6.8.0"
+        val spotlessPlugin = "6.9.1"
     }
     plugins {
         id("com.diffplug.spotless") version versions.spotlessPlugin
