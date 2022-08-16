@@ -17,7 +17,7 @@ extensions.configure<PublishingExtension> {
     publications.create<MavenPublication>("maven") {
         groupId = project property "PROJECT_GROUP_ID"
         artifactId = project property "PROJECT_ARTIFACT_ID"
-        version = project.version.toString()
+        version = project property "PROJECT_VERSION"
         from(components["java"])
         pom.configure()
         repositories.configure()
@@ -68,7 +68,7 @@ fun RepositoryHandler.configure() {
 }
 
 val isSnapshot: Boolean
-    get() = version.toString().endsWith("SNAPSHOT")
+    get() = project.property<String>("PROJECT_VERSION").endsWith("SNAPSHOT")
 
 inline infix fun <reified T> Property<T>.fromProperty(name: String) {
     set(project.property(name) as T)
