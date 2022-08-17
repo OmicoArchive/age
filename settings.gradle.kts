@@ -6,16 +6,6 @@ enableFeaturePreview("TYPESAFE_PROJECT_ACCESSORS")
 
 pluginManagement {
     includeBuild("build-logic")
-    val versions = object {
-        val gradleEnterprisePlugin = "3.10.3"
-        val gradleVersionsPlugin = "0.42.0"
-        val spotlessPlugin = "6.9.1"
-    }
-    plugins {
-        id("com.diffplug.spotless") version versions.spotlessPlugin
-        id("com.github.ben-manes.versions") version versions.gradleVersionsPlugin
-        id("com.gradle.enterprise") version versions.gradleEnterprisePlugin
-    }
     repositories {
         gradlePluginPortal()
         google()
@@ -32,7 +22,7 @@ dependencyResolutionManagement {
 }
 
 plugins {
-    id("com.gradle.enterprise")
+    id("com.gradle.enterprise") version "3.10.3"
 }
 
 gradleEnterprise {
