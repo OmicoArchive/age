@@ -17,6 +17,5 @@ gradlePlugin {
 }
 
 dependencies {
-    implementation(projects.ageGradlePlugin.settings.commonVersionCatalogs)
-    implementation(projects.ageGradlePlugin.settings.moduleStructure)
+    subprojects.forEach(::implementation)
 }
