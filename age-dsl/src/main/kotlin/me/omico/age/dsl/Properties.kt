@@ -11,8 +11,9 @@ inline val Project.localProperties: Properties
     }
 
 fun Project.sensitiveProperty(name: String): String =
-    localProperties.getProperty(name)
-        ?: System.getenv(name)
-        ?: error("Cannot find property $name in local.properties.")
+    findSensitiveProperty(name) ?: error("Cannot find property $name in local.properties.")
+
+fun Project.findSensitiveProperty(name: String): String? =
+    localProperties.getProperty(name) ?: System.getenv(name)
 
 inline infix fun <reified T> Project.property(name: String): T = properties[name] as T

@@ -1,3 +1,4 @@
+import me.omico.age.dsl.findSensitiveProperty
 import me.omico.age.dsl.property
 import me.omico.age.dsl.sensitiveProperty
 
@@ -54,12 +55,17 @@ fun MavenPom.configure() {
 }
 
 fun RepositoryHandler.configure() {
+    val urlProperty = when {
+        isSnapshot -> "NEXUS_PUBLISH_SNAPSHOT_URL"
+        else -> "NEXUS_PUBLISH_RELEASE_URL"
+    }
+    val aUrl = findSensitiveProperty(urlProperty)
+    if (aUrl == null) {
+        logger.warn("$urlProperty is not set. Currently cannot publish to Nexus.")
+        return
+    }
     maven {
-        val urlProperty = when {
-            isSnapshot -> "NEXUS_PUBLISH_SNAPSHOT_URL"
-            else -> "NEXUS_PUBLISH_RELEASE_URL"
-        }
-        url = uri(sensitiveProperty(urlProperty))
+        url = uri(aUrl)
         credentials {
             username = sensitiveProperty("NEXUS_USERNAME")
             password = sensitiveProperty("NEXUS_PASSWORD")
