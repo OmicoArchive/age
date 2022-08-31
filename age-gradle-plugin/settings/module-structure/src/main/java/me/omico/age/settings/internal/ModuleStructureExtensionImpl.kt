@@ -20,7 +20,7 @@ internal open class ModuleStructureExtensionImpl : ModuleStructureExtension {
         fun create(settings: Settings): ModuleStructureExtension = run {
             ModuleStructureConfigs.settings = settings
             ModuleStructureConfigs.templatesFolder = settings.rootDir.resolve("templates")
-            settings.extensions.create("autoModuleCreation", ModuleStructureExtensionImpl::class)
+            settings.extensions.create("moduleStructure", ModuleStructureExtensionImpl::class)
         }
     }
 }
