@@ -1,6 +1,6 @@
 [versions]
-android-gradle-plugin = "7.4.0-alpha09"
-spotless = "6.9.1"
+android-gradle-plugin = "8.0.0-alpha04"
+spotless = "6.11.0"
 versions = "0.42.0"
 
 [libraries]

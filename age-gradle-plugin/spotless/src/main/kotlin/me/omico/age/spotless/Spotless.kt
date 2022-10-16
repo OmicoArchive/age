@@ -95,7 +95,7 @@ fun SpotlessExtension.protobuf(
 ) = format("protobuf", block)
 
 val defaultEditorConfig: Map<String, String> = mapOf(
-    "disabled_rules" to listOf(
+    "ktlint_disabled_rules" to listOf(
         "argument-list-wrapping",
         "filename",
     ).joinToString(","),
