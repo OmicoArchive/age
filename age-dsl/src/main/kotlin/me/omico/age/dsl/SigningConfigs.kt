@@ -27,12 +27,14 @@ private fun Project.hasNullSigningConfigProperties(properties: Properties): Bool
     val nullProperties = listOf("store.file", "store.password", "key.alias", "key.password")
         .mapNotNull { if (properties[it] == null) it else null }
     val hasNullProperties = nullProperties.isNotEmpty()
-    if (hasNullProperties) println(
-        "========================== Notice ==========================\n" +
-            "You should set $nullProperties in your properties file. \n" +
-            "Otherwise this signingConfig will not be applied.\n" +
-            "The default properties file is ${rootDir}${File.separator}local.properties.\n" +
-            "============================================================",
-    )
+    if (hasNullProperties) {
+        println(
+            "========================== Notice ==========================\n" +
+                "You should set $nullProperties in your properties file. \n" +
+                "Otherwise this signingConfig will not be applied.\n" +
+                "The default properties file is ${rootDir}${File.separator}local.properties.\n" +
+                "============================================================",
+        )
+    }
     return hasNullProperties
 }

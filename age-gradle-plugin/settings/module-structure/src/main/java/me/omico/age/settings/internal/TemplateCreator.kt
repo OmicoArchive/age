@@ -25,12 +25,14 @@ fun ModuleStructureExtension.createTemplate(module: String) {
         .resolve(module)
     moduleDirectory.createDirectories()
     val moduleSourceDirectory: Path = moduleDirectory.resolve("src")
-    if (!moduleSourceDirectory.exists()) moduleSourceDirectory.resolve("main").also {
-        it.createDirectories()
-        sourceType.ifNotNullOrEmpty { sourceType ->
-            it.resolve(sourceType).createDirectories()
-            group.ifNotNullOrEmpty { group ->
-                it.resolve(sourceType).resolve(group.replace(".", File.separator)).createDirectories()
+    if (!moduleSourceDirectory.exists()) {
+        moduleSourceDirectory.resolve("main").also {
+            it.createDirectories()
+            sourceType.ifNotNullOrEmpty { sourceType ->
+                it.resolve(sourceType).createDirectories()
+                group.ifNotNullOrEmpty { group ->
+                    it.resolve(sourceType).resolve(group.replace(".", File.separator)).createDirectories()
+                }
             }
         }
     }
