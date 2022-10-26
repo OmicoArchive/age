@@ -1,8 +1,8 @@
 package me.omico.age.settings.internal
 
 import me.omico.age.settings.ModuleStructureExtension
-import me.omico.age.settings.template
 import org.gradle.api.Action
+import org.gradle.kotlin.dsl.template
 
 internal data class FolderBuilder(
     override val currentPath: String,

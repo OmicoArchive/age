@@ -1,6 +1,5 @@
 package me.omico.age.settings
 
-import me.omico.age.settings.internal.VariablesDelegate
 import org.gradle.api.Action
 
 interface ModuleStructureExtension {
@@ -26,11 +25,3 @@ interface ModuleStructureExtension {
      */
     fun module(name: String, action: Action<ModuleStructureExtension>)
 }
-
-var ModuleStructureExtension.name: String by VariablesDelegate
-
-var ModuleStructureExtension.group: String by VariablesDelegate
-
-var ModuleStructureExtension.sourceType: String by VariablesDelegate
-
-var ModuleStructureExtension.template: String by VariablesDelegate

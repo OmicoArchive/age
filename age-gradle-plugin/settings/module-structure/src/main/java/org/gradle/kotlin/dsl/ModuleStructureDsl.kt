@@ -3,17 +3,18 @@
     "unused",
 )
 
-package me.omico.age.settings
+package org.gradle.kotlin.dsl
 
+import me.omico.age.settings.ModuleStructureConfigs
+import me.omico.age.settings.ModuleStructureExtension
 import me.omico.age.settings.internal.FolderBuilder
+import me.omico.age.settings.internal.VariablesDelegate
 import me.omico.age.settings.internal.resolveVariables
 import org.gradle.api.initialization.Settings
-import org.gradle.kotlin.dsl.configure
 
 fun Settings.moduleStructure(block: ModuleStructureExtension.() -> Unit) = extensions.configure(block)
 
-fun ModuleStructureExtension.configs(block: ModuleStructureConfigs.() -> Unit) =
-    ModuleStructureConfigs.apply(block)
+fun ModuleStructureExtension.configs(block: ModuleStructureConfigs.() -> Unit) = ModuleStructureConfigs.apply(block)
 
 /**
  * Create a folder for this project. You can also nest folders infinitely.
@@ -38,10 +39,7 @@ fun ModuleStructureExtension.folder(
     name: String,
     builder: ModuleStructureExtension.() -> Unit,
 ): ModuleStructureExtension =
-    FolderBuilder(
-        currentPath = "$currentPath:$name",
-        variables = resolveVariables(name),
-    ).apply(builder)
+    FolderBuilder(currentPath = "$currentPath:$name", variables = resolveVariables(name)).apply(builder)
 
 /**
  * Create a module from a template and include it in this project.
@@ -61,8 +59,7 @@ fun ModuleStructureExtension.folder(
  * @param name The module name.
  *
  */
-fun ModuleStructureExtension.module(name: String): ModuleStructureExtension =
-    apply { module(name) {} }
+fun ModuleStructureExtension.module(name: String): ModuleStructureExtension = apply { module(name) {} }
 
 /**
  * Quickly create a module from a template without other configurations and include it in this project.
@@ -103,5 +100,9 @@ fun ModuleStructureExtension.module(name: String, template: String): ModuleStruc
  * @param name The module name.
  *
  */
-fun <T : Any> ModuleStructureExtension.variable(name: String, value: T) =
-    variables.put(name, value.toString())
+fun <T : Any> ModuleStructureExtension.variable(name: String, value: T) = variables.put(name, value.toString())
+
+var ModuleStructureExtension.name: String by VariablesDelegate
+var ModuleStructureExtension.group: String by VariablesDelegate
+var ModuleStructureExtension.sourceType: String by VariablesDelegate
+var ModuleStructureExtension.template: String by VariablesDelegate

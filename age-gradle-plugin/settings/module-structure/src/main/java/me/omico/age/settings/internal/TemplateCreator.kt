@@ -2,10 +2,10 @@ package me.omico.age.settings.internal
 
 import me.omico.age.settings.ModuleStructureConfigs
 import me.omico.age.settings.ModuleStructureExtension
-import me.omico.age.settings.group
-import me.omico.age.settings.name
-import me.omico.age.settings.sourceType
-import me.omico.age.settings.template
+import org.gradle.kotlin.dsl.group
+import org.gradle.kotlin.dsl.name
+import org.gradle.kotlin.dsl.sourceType
+import org.gradle.kotlin.dsl.template
 import java.io.File
 import java.nio.file.Files
 import java.nio.file.Path

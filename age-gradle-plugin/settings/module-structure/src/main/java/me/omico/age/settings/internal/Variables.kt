@@ -1,7 +1,7 @@
 package me.omico.age.settings.internal
 
 import me.omico.age.settings.ModuleStructureExtension
-import me.omico.age.settings.group
+import org.gradle.kotlin.dsl.group
 import kotlin.properties.ReadWriteProperty
 import kotlin.reflect.KProperty
 
