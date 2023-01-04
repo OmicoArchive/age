@@ -8,13 +8,13 @@ plugins {
 }
 
 extensions.configure<PublishingExtension> {
+    repositories.configure()
     publications.create<MavenPublication>("maven") {
         groupId = project property "PROJECT_GROUP_ID"
         artifactId = project property "PROJECT_ARTIFACT_ID"
         version = project property "PROJECT_VERSION"
         from(components["java"])
         pom.configure()
-        repositories.configure()
     }
 }
 
