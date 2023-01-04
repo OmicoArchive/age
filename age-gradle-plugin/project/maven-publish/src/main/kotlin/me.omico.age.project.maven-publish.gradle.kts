@@ -7,13 +7,6 @@ plugins {
     signing
 }
 
-plugins.withId("java") {
-    extensions.configure<JavaPluginExtension> {
-        withSourcesJar()
-        withJavadocJar()
-    }
-}
-
 extensions.configure<PublishingExtension> {
     publications.create<MavenPublication>("maven") {
         groupId = project property "PROJECT_GROUP_ID"
