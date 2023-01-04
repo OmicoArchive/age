@@ -97,4 +97,6 @@ fun SpotlessExtension.protobuf(
 val defaultEditorConfig: Map<String, String> = mapOf(
     "ij_kotlin_allow_trailing_comma" to "true",
     "ij_kotlin_allow_trailing_comma_on_call_site" to "true",
+    "ktlint_standard_argument-list-wrapping" to "disabled",
+    "ktlint_standard_filename" to "disabled",
 )
