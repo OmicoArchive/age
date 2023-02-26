@@ -1,7 +1,7 @@
 [versions]
-android-gradle-plugin = "8.0.0-alpha10"
-spotless = "6.12.1"
-versions = "0.44.0"
+android-gradle-plugin = "8.0.0-beta03"
+spotless = "6.15.0"
+versions = "0.46.0"
 
 [libraries]
 gradle-plugin-android = { module = "com.android.tools.build:gradle", version.ref = "android-gradle-plugin" }
