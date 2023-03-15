@@ -42,8 +42,8 @@ fun SpotlessExtension.gradleVersionCatalogs(
 fun SpotlessExtension.intelliJIDEARunConfiguration(
     block: FormatExtension.() -> Unit = {
         target(
-            ".run/*.xml",
-            ".idea/runConfigurations/*.xml",
+            "**/.run/*.xml",
+            "**/.idea/runConfigurations/*.xml",
         )
         indentWithSpaces()
         trimTrailingWhitespace()
